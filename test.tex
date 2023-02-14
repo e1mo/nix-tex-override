@@ -1,0 +1,22 @@
+\documentclass{scrartcl}
+
+\title{Presentation title}
+\date{}
+
+\usepackage{markdown}
+
+\def\markdownOptionFencedDivs{true}
+\def\markdownOptionFencedCode{true}
+
+\begin{document}
+% This is extracted from a test that validates behaviour only fixed in
+% 2.20.0: https://github.com/Witiko/markdown/commit/ad3407bc489ad6d60060e8a4d3efd893086682cf
+\begin{markdown}
+
+::: {#fenced-test}
+> This is a blockquote immediately in a
+> div
+:::
+
+\end{markdown}
+\end{document}

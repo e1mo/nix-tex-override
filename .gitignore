@@ -1,0 +1,11 @@
+result
+result-*
+build/
+*~
+,*
+.*.swp
+.*.swo
+.\#*
+\#*\#
+.idea/
+.vscode/
