@@ -1,16 +1,16 @@
 ## Use as nix overlay (recommended)
 
 [Nix overlays], here defined in `overlay.nix`,  are an easy way to extend nixpkgs in a clean matter. The provided overlay can be used as demonstrated in `example.nix`.
-This overlay can be used as an external dependency like this:
+This overlay can be used as an external dependency like this (or comparably in a flake.nix):
 
 ```nix
-with import <nixpk> {
+with import nixpkgs {
   overlays = [(
     # Basically this is the only part different from the example.nix
-    import (fetchurl {
-      url = "https://raw.githubusercontent.com/e1mo/nix-tex-override/main/overlay.tex";
-      sha256 = "...";
-    });
+    import (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/e1mo/nix-tex-override/main/overlay.nix";
+      sha256 = "06xj9zvrw0hjjkj1bqbn71ll0rrvra2djf7ii49kdhhcapfpy6vj";
+    })
   )];
 };
 
@@ -21,6 +21,8 @@ stdenv.makeDerivation {
 ```
 
 Of course you can also simply just copy the `overlay.nix` into the source.
+
+[Nix overlays]: <https://nixos.wiki/wiki/Overlays>
 
 ## Building the example
 
